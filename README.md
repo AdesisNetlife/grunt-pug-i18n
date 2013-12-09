@@ -1,4 +1,4 @@
-# grunt-jade-i18n [![Build Status](https://travis-ci.org/adesisnetlife/grunt-jade-i18n.png)](https://travis-ci.org/adesisnetlife/grunt-jade-i18n)
+# grunt-jade-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.png)](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n)
 
 > Compile Jade templates (with internationalization and translation support)
 
