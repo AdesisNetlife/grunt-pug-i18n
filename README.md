@@ -42,7 +42,7 @@ grunt.initConfig({
         // jade i18n specific options
         i18n: {
           locales: 'locales/*.json',
-          namespace: '$18n'
+          namespace: '$i18n'
         },
         // Jade specific options
         pretty: true
