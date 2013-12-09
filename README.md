@@ -70,7 +70,9 @@ body
 
 ### Options
 
-Only `jade-i18n` specific options are listed below. To see all the available options available, please see [grunt-contrib-jade][2]
+Only `jade-i18n` specific options are listed below
+
+To see all the available options available, please see [grunt-contrib-jade][2]
 
 #### locales
 Type: String|Array
@@ -100,6 +102,8 @@ html/
 ├── view.es-es.html
 └── view.it-it.html
 ```
+
+See [test][4] for more examples 
 
 ## Contributing
 
@@ -146,3 +150,4 @@ Released under MIT license
 [1]: https://github.com/gruntjs/grunt-contrib-jade
 [2]: https://github.com/gruntjs/grunt-contrib-jade#options
 [3]: http://jade-lang.com/
+[4]: https://github.com/AdesisNetlife/grunt-jade-i18n/tree/master/test
