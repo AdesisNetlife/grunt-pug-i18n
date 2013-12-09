@@ -1,0 +1,6 @@
+{
+    "message": "Hello world!",
+    "nested": {
+        "msg": "and hello to you"
+    }
+}
