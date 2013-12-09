@@ -58,7 +58,7 @@ grunt.initConfig({
 ##### Example JSON locate file
 ```json
 {
-  "hello": { "world": 'Hola Mundo' }
+  "hello": { "world": "Hola Mundo" }
 }
 ```
 
