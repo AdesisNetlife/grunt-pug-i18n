@@ -65,7 +65,7 @@ grunt.initConfig({
 ##### Example Jade file
 ```jade
 body 
-  h1 ${$i18n.hello.world}!
+  h1 #{$i18n.hello.world}!
 ```
 
 ### Options
