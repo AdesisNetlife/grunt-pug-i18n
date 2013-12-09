@@ -4,10 +4,10 @@
 
 ## Getting started
 
-This plugin is the same like use [grunt-contrib-jade][1], but it simply adds support 
-for [Jade][3] template internationalization based on JSON/YAML/JS translation files
+This plugin is the same as [grunt-contrib-jade][1], but it adds high level support 
+for [Jade][3] template internationalization based on JSON/YAML/JS files
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](hettp://gruntjs.com/sample-gruntfil) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
 npm install grunt-jade-i18n --save-dev
@@ -21,14 +21,15 @@ grunt.loadNpmTasks('grunt-jade-i18n');
 
 This plugin requires Grunt `~0.4.0`
 
-## jade task
+## The "jade" task
 
 _Run this task with the `grunt jade` command._
 
 Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide
 
 This plugin provides a localization mechanism for Jade templates.
-Since localization is done once during the build process, there is no performance hit on the application, as oppose to dynamic localization on the client side
+Since localization is done once during the build process, there is no performance hit on the application, opposed to dynamic translation on the client side
+
 
 ### Usage example
 
@@ -69,14 +70,14 @@ body
 
 ### Options
 
-Only `jade-i18n` specific options are listed below, to see all the available options you can use, please see [grunt-contrib-jade][2]
+Only `jade-i18n` specific options are listed below. To see all the available options available, please see [grunt-contrib-jade][2]
 
 #### locales
 Type: String|Array
 
 Path to localization files. Please check the examples in tests. Glob patterns can be used
 
-`JSON`, `YAML` and `JS` formats are supported for the locate translation templates
+`JSON`, `YAML` and `JS` formats are supported for the translation templates
 
 #### namespace
 Type: String
@@ -102,10 +103,9 @@ html/
 
 ## Contributing
 
-In lieu of a formal styleguide, take care to maintain the existing coding style.
+Instead of a formal styleguide, take care to maintain the existing coding style.
 
-Add unit tests for any new or changed functionality.
-Lint and test your code using [Grunt](http://gruntjs.com/).
+Add unit tests for any new or changed functionality
 
 ### Development
 
@@ -131,7 +131,7 @@ $ npm test
 
 ## To Do
 
-You miss something? Open an issue or make a PR!
+Do you miss something? Open an issue or make a PR!
 
 ## Contributors
 
