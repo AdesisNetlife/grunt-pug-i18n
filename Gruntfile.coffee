@@ -2,7 +2,7 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
 
-    clean: ['.tmp', 'tasks/*.js', 'test/**/*.js']
+    clean: ['.tmp/**', 'tasks/*.js', 'test/**/*.js']
 
     coffeelint:
       tasks: 'tasks/*.coffee'

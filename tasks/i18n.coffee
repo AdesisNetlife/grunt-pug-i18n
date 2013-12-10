@@ -6,6 +6,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-jade'
   grunt.renameTask 'jade', 'contrib-jade'
 
+  grunt.loadNpmTasks 'grunt-contrib-jade'
+  grunt.renameTask 'jade', 'contrib-jade'
+
   grunt.registerMultiTask 'jade', 'Compile Jade template with internalization support', ->
     
     jadeConfig = null
@@ -18,7 +21,7 @@ module.exports = (grunt) ->
     # set default options
     namespace = '$i18n' unless namespace?
     locateExtension = no unless locateExtension?
-    defaultExt = 'html' unless defaultExt?
+    defaultExt = '.html' unless defaultExt?
 
     if locales and locales.length
       jadeConfig = {}
@@ -64,6 +67,11 @@ module.exports = (grunt) ->
   getExtension = (filepath) ->
     path.extname filepath
 
+  setExtension = (ext) ->
+    if ext.charAt(0) isnt '.'
+      ext = '.' + ext
+    ext
+
   addLocateExtensionDest = (file, locale, outputExt) ->
     locale = locale.toLowerCase()
     getBaseName = -> path.basename(file.src[0]).split('.')[0]
@@ -74,15 +82,15 @@ module.exports = (grunt) ->
       dest = path.join file.dest, getBaseName() + ".#{locale}"
 
     if file.orig.ext
-      dest += file.orig.ext
+      dest += setExtension file.orig.ext
     else
-      dest += '.' + outputExt
-      
+      dest += setExtension outputExt
+
     file.dest = file.orig.dest = dest
 
   addLocateDirnameDest = (file, locale, outputExt) ->
     if ext = getExtension file.dest
-      dest = path.join path.dirname(file.dest), locale, path.basename(file.dest, ext) + ext
+      dest = path.join path.dirname(file.dest), locale, path.basename(file.dest, ext) + setExtension ext
     else
       if /(\/|\*+)$/i.test file.dest
         base = file.dest.split('/')
@@ -90,7 +98,7 @@ module.exports = (grunt) ->
       else
         dest = path.join file.dest, locale
 
-    dest = dest.replace /\.jade$/i, '.' + outputExt
+    dest = dest.replace /\.jade$/i, setExtension outputExt
     file.dest = file.orig.dest = dest
 
   readFile = (filepath) ->
