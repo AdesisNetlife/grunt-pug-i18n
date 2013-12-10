@@ -54,6 +54,7 @@ grunt.initConfig({
   }
 })
 ```
+_See [Gruntfile][5] for more configuration examples_
 
 ##### Example JSON locate file (es_ES.json)
 ```json
@@ -92,15 +93,21 @@ Type: Boolean
 Default: false
 
 Generate the HTML output files with the extension prefix with the current language.
+By default it will create different folders for each language
 
-By default it will create different folders for each language.
 Setting this option into `true`, the generated HTML files will look like this:
-
 ```
 html/
 ├── view.en-en.html
-├── view.es-es.html
-└── view.it-it.html
+└── view.es-es.html
+```
+... instead of:
+```
+html/
+├── en-EN/
+│   └── view.html
+└── es-ES/
+    └── view.html 
 ```
 
 See [test][4] for more examples 
@@ -151,3 +158,4 @@ Released under MIT license
 [2]: https://github.com/gruntjs/grunt-contrib-jade#options
 [3]: http://jade-lang.com/
 [4]: https://github.com/AdesisNetlife/grunt-jade-i18n/tree/master/test
+[5]: https://github.com/AdesisNetlife/grunt-jade-i18n/blob/master/Gruntfile.coffee
