@@ -55,14 +55,14 @@ grunt.initConfig({
 })
 ```
 
-##### Example JSON locate file
+##### Example JSON locate file (es_ES.json)
 ```json
 {
   "hello": { "world": "Hola Mundo" }
 }
 ```
 
-##### Example Jade file
+##### Example Jade template with internationalization
 ```jade
 body 
   h1 #{$i18n.hello.world}!

@@ -31,7 +31,7 @@ module.exports = (grunt) ->
       translateDir:
         options:
           i18n:
-            locales: 'test/locales/*.json'
+            locales: 'test/locales/*'
           pretty: true
         files:
           '.tmp/sample.jade': 'test/fixtures/directory/*.jade'
@@ -39,7 +39,7 @@ module.exports = (grunt) ->
       translateFile:
         options:
           i18n:
-            locales: 'test/locales/*.json'
+            locales: [ 'test/locales/*' ]
             namespace: '$t'
             locateExtension: true
           client: false
