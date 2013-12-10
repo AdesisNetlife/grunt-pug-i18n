@@ -6,9 +6,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-jade'
   grunt.renameTask 'jade', 'contrib-jade'
 
-  grunt.loadNpmTasks 'grunt-contrib-jade'
-  grunt.renameTask 'jade', 'contrib-jade'
-
   grunt.registerMultiTask 'jade', 'Compile Jade template with internalization support', ->
     
     jadeConfig = null
