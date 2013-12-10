@@ -20,7 +20,7 @@
       "url": "https://github.com/adesisnetlife/grunt-jade-i18n/blob/master/LICENSE"
     }
   ],
-  "main": "tasks/jade-i18n.js",
+  "main": "tasks/i18n.js",
   "engines": {
     "node": ">= 0.8.0"
   },
