@@ -137,6 +137,9 @@ $ npm test
 
 ## Release History
 
+* 0.1.1 `2013-12-10`
+  - Minor refactor
+  - Task improvements: avoid possible configuration issues with output file extensions
 * 0.1.0 `2013-12-09`
   - Initial release
 
