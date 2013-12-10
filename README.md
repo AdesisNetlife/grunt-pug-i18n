@@ -4,7 +4,7 @@
 
 ## Getting started
 
-This plugin is the same as [grunt-contrib-jade][1], but it adds high level support 
+This plugin is the same as [grunt-contrib-jade][1], but it adds high level support
 for [Jade][3] template internationalization based on JSON/YAML/JS files
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](hettp://gruntjs.com/sample-gruntfil) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
@@ -65,7 +65,7 @@ _See [Gruntfile][5] for more configuration examples_
 
 ##### Example Jade template with internationalization
 ```jade
-body 
+body
   h1 #{$i18n.hello.world}!
 ```
 
@@ -107,10 +107,10 @@ html/
 ├── en-EN/
 │   └── view.html
 └── es-ES/
-    └── view.html 
+    └── view.html
 ```
 
-See [test][4] for more examples 
+See [test][4] for more examples
 
 ## Contributing
 
@@ -137,11 +137,11 @@ $ npm test
 
 ## Release History
 
-* 0.1.1 `2013-12-10`
-  - Minor refactor
-  - Task improvements: avoid possible configuration issues with output file extensions
-* 0.1.0 `2013-12-09`
-  - Initial release
+- **0.1.1** `2013-12-10`
+    - Minor refactor
+    - Improvements: avoid possible configuration issues with output file extensions
+- **0.1.0** `2013-12-09`
+    - Initial release
 
 ## To Do
 
