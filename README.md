@@ -137,6 +137,8 @@ $ npm test
 
 ## Release History
 
+- **0.1.2** `2013-12-11`
+    - Fix locale bad formed name
 - **0.1.1** `2013-12-10`
     - Minor refactor
     - Improvements: avoid possible configuration issues with output file extensions
