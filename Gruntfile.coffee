@@ -62,6 +62,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-nodeunit'
+  grunt.loadNpmTasks 'grunt-release'
 
   grunt.registerTask 'default', ['clean', 'coffeelint', 'coffee']
   grunt.registerTask 'test', ['clean', 'coffeelint', 'coffee', 'jade', 'nodeunit']
