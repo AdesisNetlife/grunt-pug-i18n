@@ -41,7 +41,7 @@ module.exports = (grunt) ->
           i18n:
             locales: [ 'test/locales/*' ]
             namespace: '$t'
-            locateExtension: true
+            localeExtension: true
           client: false
           pretty: true
 

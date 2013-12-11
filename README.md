@@ -56,7 +56,7 @@ grunt.initConfig({
 ```
 _See [Gruntfile][5] for more configuration examples_
 
-##### Example JSON locate file (es_ES.json)
+##### Example JSON locale file (es_ES.json)
 ```json
 {
   "hello": { "world": "Hola Mundo" }
@@ -88,7 +88,7 @@ Default: '$i18n'
 
 Namespace to expose translation keys in Jade template
 
-#### locateExtension
+#### localeExtension
 Type: Boolean
 Default: false
 
