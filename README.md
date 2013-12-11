@@ -1,6 +1,4 @@
-# grunt-jade-i18n
-[![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.png)][travis]
-[![NPM version](https://badge.fury.io/js/grunt-jade-i18n.png)][badge]
+# grunt-jade-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.png)][travis] [![NPM version](https://badge.fury.io/js/grunt-jade-i18n.png)][badge]
 
 > Compile Jade templates (with internationalization and translation support)
 
