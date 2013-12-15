@@ -167,3 +167,7 @@ Released under MIT license
 [travis]: https://travis-ci.org/AdesisNetlife/grunt-jade-i18n
 [badge]: http://badge.fury.io/js/grunt-jade-i18n
 [dependencies]: https://gemnasium.com/AdesisNetlife/grunt-jade-i18n
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/AdesisNetlife/grunt-jade-i18n/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
