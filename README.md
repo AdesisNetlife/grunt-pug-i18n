@@ -1,4 +1,7 @@
-# grunt-jade-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.png)][travis] [![Dependency Status](https://gemnasium.com/AdesisNetlife/grunt-jade-i18n.png)][dependencies] [![NPM version](https://badge.fury.io/js/grunt-jade-i18n.png)][badge]
+# grunt-jade-i18n 
+
+[![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.png)][travis] [![Dependency Status](https://gemnasium.com/AdesisNetlife/grunt-jade-i18n.png)][dependencies] [![NPM version](https://badge.fury.io/js/grunt-jade-i18n.png)][badge]
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/AdesisNetlife/grunt-jade-i18n/trend.png)](https://bitdeli.com/AdesisNetlife/grunt-jade-i18n "Bitdeli Badge")
 
 > Compile Jade templates (with internationalization and translation support)
 
@@ -167,7 +170,4 @@ Released under MIT license
 [travis]: https://travis-ci.org/AdesisNetlife/grunt-jade-i18n
 [badge]: http://badge.fury.io/js/grunt-jade-i18n
 [dependencies]: https://gemnasium.com/AdesisNetlife/grunt-jade-i18n
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/AdesisNetlife/grunt-jade-i18n/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
