@@ -31,7 +31,7 @@ module.exports = (grunt) ->
         grunt.log.ok "Loading locale '#{locale}'"
 
         # create the new config as subtask for each language, based on the original task config
-        jadeConfig["#{@name}-#{locale}"] = config = _.cloneDeep jadeOrigConfig
+        jadeConfig["#{@target or @name}-#{locale}"] = config = _.cloneDeep jadeOrigConfig
 
         # read data from translation file
         grunt.verbose.writeln "Reading translation data: #{filepath}"
