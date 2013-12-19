@@ -1,4 +1,4 @@
-# grunt-jade-i18n 
+# grunt-jade-i18n
 
 [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.png)][travis] [![Dependency Status](https://gemnasium.com/AdesisNetlife/grunt-jade-i18n.png)][dependencies] [![NPM version](https://badge.fury.io/js/grunt-jade-i18n.png)][badge]
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/AdesisNetlife/grunt-jade-i18n/trend.png)](https://bitdeli.com/AdesisNetlife/grunt-jade-i18n "Bitdeli Badge")
@@ -7,7 +7,7 @@
 
 ## Getting started
 
-This plugin is the same as [grunt-contrib-jade][1], but it adds high level support
+This plugin is exactly the same as [grunt-contrib-jade][1], but it adds high level support
 for [Jade][3] template internationalization based on JSON/YAML/JS files
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](hettp://gruntjs.com/sample-gruntfil) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
@@ -140,6 +140,8 @@ $ npm test
 
 ## Release History
 
+- **0.1.3** `2013-12-19`
+    - Fix #2
 - **0.1.2** `2013-12-11`
     - Fix locale bad formed name
 - **0.1.1** `2013-12-10`
