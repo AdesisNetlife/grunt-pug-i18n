@@ -32,7 +32,7 @@ module.exports = (grunt) ->
         # get the language code
         fileExt = filepath.split('.').slice(-1)[0]
         locale = path.basename filepath, '.' + fileExt
-        grunt.verbose.writeln "Loading locale '#{locale}'"
+        grunt.log.ok "Loading locale '#{locale}'"
 
         # create the new config as subtask for each language, based on the original task config
         jadeConfig["#{@name}-#{locale}"] = config = _.cloneDeep jadeOrigConfig
@@ -55,10 +55,13 @@ module.exports = (grunt) ->
           file
 
     else
-      grunt.log.writeln 'Locales files not found. Nothing to translate'
+      grunt.log.ok 'Locales files not found. Nothing to translate'
 
     # set the extended config object to the original Jade task
-    grunt.config.set 'contrib-jade', jadeConfig or jadeOrigConfig
+    if jadeConfig
+      grunt.config.set 'contrib-jade', jadeConfig
+    else
+      grunt.config.set "contrib-jade.#{@target}", jadeOrigConfig
 
     # finally run the original Jade task
     grunt.task.run 'contrib-jade'

@@ -27,3 +27,12 @@ exports.jade_i18n =
     test.equal expected, actual, 'should translate the template into spanish'
 
     test.done()
+
+  withoutI18n: (test) ->
+    test.expect 1
+
+    expected = grunt.file.read 'test/expected/no-i18n.html'
+    actual = grunt.file.read '.tmp/no-i18n.html'
+    test.equal expected, actual, 'should generate the template without i18n task options'
+
+    test.done()

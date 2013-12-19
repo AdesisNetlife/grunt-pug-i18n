@@ -53,6 +53,17 @@ module.exports = (grunt) ->
           dest: '.tmp/'
         ]
 
+      noI18n:
+        options:
+          data:
+            $i18n:
+              message: 'Hello world!'
+              nested:
+                msg: 'and hello to you'
+          pretty: true
+        files:
+          '.tmp/no-i18n.html': 'test/fixtures/directory/*.jade'
+
     nodeunit:
       tests: ['test/*_test.coffee']
 
