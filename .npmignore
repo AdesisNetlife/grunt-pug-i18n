@@ -22,4 +22,3 @@ Gruntfile.coffee
 
 .tmp
 .DS_Store
-*.coffee

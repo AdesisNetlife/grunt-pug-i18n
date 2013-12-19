@@ -64,5 +64,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-nodeunit'
   grunt.loadNpmTasks 'grunt-release'
 
-  grunt.registerTask 'default', ['clean', 'coffeelint', 'coffee']
-  grunt.registerTask 'test', ['clean', 'coffeelint', 'coffee', 'jade', 'nodeunit']
+  grunt.registerTask 'default', ['clean', 'coffeelint']
+  grunt.registerTask 'test', ['default', 'jade', 'nodeunit']
