@@ -62,7 +62,9 @@ _See [Gruntfile][5] for more configuration examples_
 ##### Example JSON locale file (es_ES.json)
 ```json
 {
-  "hello": { "world": "Hola Mundo" }
+  "hello": {
+    "world": "Hola Mundo"
+  }
 }
 ```
 

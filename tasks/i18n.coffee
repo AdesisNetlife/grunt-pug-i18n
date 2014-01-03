@@ -3,7 +3,7 @@ _ = require 'lodash'
 
 module.exports = (grunt) ->
 
-  grunt.loadTasks path.resolve require.resolve('grunt-contrib-jade'), '../', 'tasks'
+  grunt.loadNpmTasks 'grunt-contrib-jade'
   grunt.renameTask 'jade', 'contrib-jade'
 
   grunt.registerMultiTask 'jade', 'Compile Jade template with internalization support', ->
