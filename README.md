@@ -142,15 +142,17 @@ $ npm test
 
 ## Release History
 
-- **0.1.3** `2013-12-19`
+- **0.1.4** `2013.01.03`
+    - Upgrade grunt-contrib-fade task dependency to 0.9.0
+- **0.1.3** `2013.12.19`
     - Fix #2
     - Fix #3
-- **0.1.2** `2013-12-11`
+- **0.1.2** `2013.12.11`
     - Fix locale bad formed name
-- **0.1.1** `2013-12-10`
+- **0.1.1** `2013.12.10`
     - Minor refactor
     - Improvements: avoid possible configuration issues with output file extensions
-- **0.1.0** `2013-12-09`
+- **0.1.0** `2013.12.09`
     - Initial release
 
 ## To Do
