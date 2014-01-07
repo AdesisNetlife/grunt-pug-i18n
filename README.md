@@ -142,6 +142,8 @@ $ npm test
 
 ## Release History
 
+- **0.1.5** `2013.01.07`
+    - Fix #4
 - **0.1.4** `2013.01.03`
     - Upgrade `grunt-contrib-fade` task dependency to 0.9.0
 - **0.1.3** `2013.12.19`
