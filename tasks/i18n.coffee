@@ -82,7 +82,7 @@ module.exports = (grunt) ->
     getBaseName = -> path.basename(file.src[0]).split('.')[0]
 
     if ext = getExtension file.dest
-      dest = path.join path.dirname(file.dest), path.basename(file.dest, ext) + ".#{locale}"
+      dest = path.join path.dirname(file.dest), path.basename(file.dest, ext) #+ ".#{locale}"
     else
       dest = path.join file.dest, getBaseName() + ".#{locale}"
 
