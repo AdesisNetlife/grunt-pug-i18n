@@ -54,7 +54,6 @@ module.exports = (grunt) ->
           else
             addLocaleDirnameDest file, locale, defaultExt
           file
-
     else
       grunt.log.ok 'Locales files not found. Nothing to translate'
 
