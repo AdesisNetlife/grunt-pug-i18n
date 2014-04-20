@@ -46,6 +46,7 @@ module.exports = (grunt) ->
         opts.data = {} unless _.isPlainObject opts.data
         opts.data = _.extend opts.data, readFile filepath
         opts.data[namespace] = readFile filepath
+        opts.data.$localeName = locale
 
         # translate output destination for each language
         config.files = _.cloneDeep(@files).map (file) ->
