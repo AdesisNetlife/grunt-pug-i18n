@@ -140,6 +140,8 @@ $ npm test
 
 ## Release History
 
+- **0.1.7** `2014.04.22`
+    - Replace caret (^) with tilde (~) for grunt-contrib-jade version
 - **0.1.5** `2013.01.07`
     - Fix #4
 - **0.1.4** `2013.01.03`
