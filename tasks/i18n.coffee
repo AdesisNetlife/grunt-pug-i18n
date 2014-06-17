@@ -4,10 +4,13 @@ _ = require 'lodash'
 module.exports = (grunt) ->
 
   try
+    require 'grunt-newer'
     require 'grunt-contrib-jade'
+    grunt.loadNpmTasks 'grunt-newer'
     grunt.loadNpmTasks 'grunt-contrib-jade'
   catch e
     grunt.loadTasks path.join "#{__dirname}/../node_modules", 'grunt-contrib-jade', 'tasks'
+    grunt.loadTasks path.join "#{__dirname}/../node_modules", 'grunt-newer', 'tasks'
 
   grunt.renameTask 'jade', 'contrib-jade'
 
@@ -27,8 +30,23 @@ module.exports = (grunt) ->
 
     if locales and locales.length
       jadeConfig = {}
+      runTaskCompileJadeWithNewerOption = true
 
       grunt.file.expand(locales).forEach (filepath) =>
+
+        pathToStoredLanguage = path.join(__dirname, 'temp', @target, path.basename(filepath))
+        if grunt.file.exists pathToStoredLanguage
+          # compare previous language file with the current
+          currentLanguage = grunt.file.read(filepath)
+          storedLanguage = grunt.file.read(pathToStoredLanguage)
+          if currentLanguage == storedLanguage
+            runTaskCompileJadeWithNewerOption = true
+          else
+            runTaskCompileJadeWithNewerOption = false
+            grunt.file.copy filepath, pathToStoredLanguage
+        else
+          grunt.file.mkdir path.join(__dirname, 'temp', @target)
+          grunt.file.copy filepath, pathToStoredLanguage
 
         # get the language code
         fileExt = filepath.split('.').slice(-1)[0]
@@ -59,14 +77,18 @@ module.exports = (grunt) ->
       grunt.log.ok 'Locales files not found. Nothing to translate'
 
     # set the extended config object to the original Jade task
+
     if jadeConfig
       grunt.config.set 'contrib-jade', jadeConfig
     else
       grunt.config.set "contrib-jade.#{@target}", jadeOrigConfig
 
     # finally run the original Jade task
-    grunt.task.run 'contrib-jade'
 
+    if runTaskCompileJadeWithNewerOption
+      grunt.task.run 'newer:contrib-jade'
+    else
+      grunt.task.run 'contrib-jade'
 
 
   getExtension = (filepath) ->
