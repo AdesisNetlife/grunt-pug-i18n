@@ -142,7 +142,7 @@ $ npm test
 
 ## Release History
 
-- **0.1.8** `2014.06.26`
+- **0.2.0** `2014.06.26`
     - Installs and uses `grunt-newer`
 - **0.1.7** `2014.04.22`
     - Replace caret (^) with tilde (~) for grunt-contrib-jade version
