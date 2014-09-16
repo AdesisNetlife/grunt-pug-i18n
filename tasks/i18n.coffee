@@ -4,13 +4,10 @@ _ = require 'lodash'
 module.exports = (grunt) ->
 
   try
-    require 'grunt-newer'
     require 'grunt-contrib-jade'
-    grunt.loadNpmTasks 'grunt-newer'
     grunt.loadNpmTasks 'grunt-contrib-jade'
   catch e
     grunt.loadTasks path.join "#{__dirname}/../node_modules", 'grunt-contrib-jade', 'tasks'
-    grunt.loadTasks path.join "#{__dirname}/../node_modules", 'grunt-newer', 'tasks'
 
   grunt.renameTask 'jade', 'contrib-jade'
 
@@ -18,6 +15,10 @@ module.exports = (grunt) ->
 
     jadeConfig = null
     jadeOrigConfig = grunt.config.get('jade')[@target]
+
+    gruntTaskName = grunt.cli.tasks
+    anotherTargetsForTask = gruntTaskName[0].split ':jade'
+
 
     options = @options()
     options.i18n = {} unless options.i18n
@@ -30,7 +31,7 @@ module.exports = (grunt) ->
 
     if locales and locales.length
       jadeConfig = {}
-      runTaskCompileJadeWithNewerOption = true
+      languageHasChanged = false
 
       grunt.file.expand(locales).forEach (filepath) =>
 
@@ -40,9 +41,9 @@ module.exports = (grunt) ->
           currentLanguage = grunt.file.read(filepath)
           storedLanguage = grunt.file.read(pathToStoredLanguage)
           if currentLanguage == storedLanguage
-            runTaskCompileJadeWithNewerOption = true
+            languageHasChanged = false
           else
-            runTaskCompileJadeWithNewerOption = false
+            languageHasChanged = true
             grunt.file.copy filepath, pathToStoredLanguage
         else
           grunt.file.mkdir path.join(__dirname, 'temp', @target)
@@ -77,18 +78,18 @@ module.exports = (grunt) ->
       grunt.log.ok 'Locales files not found. Nothing to translate'
 
     # set the extended config object to the original Jade task
-
     if jadeConfig
       grunt.config.set 'contrib-jade', jadeConfig
     else
       grunt.config.set "contrib-jade.#{@target}", jadeOrigConfig
 
     # finally run the original Jade task
-
-    if runTaskCompileJadeWithNewerOption
-      grunt.task.run 'newer:contrib-jade'
+    # check if we uses external tasks like grunt-newer
+    if anotherTargetsForTask.length > 1 and not languageHasChanged
+      grunt.task.run anotherTargetsForTask[0] + ':contrib-jade'
     else
       grunt.task.run 'contrib-jade'
+
 
 
   getExtension = (filepath) ->
@@ -137,6 +138,6 @@ module.exports = (grunt) ->
       else
         data = grunt.file.readJSON filepath
     catch e
-      grunt.fail.warn "Cannot parse file '#{filepath}': #{e.message}", 3
+      grunt.fail.warm "Cannot parse file '#{filepath}': #{e.message}", 3
 
     data
