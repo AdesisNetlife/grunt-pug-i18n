@@ -171,7 +171,7 @@ Do you miss something? Open an issue or make a PR!
 ## Contributors
 
 * [Tomas Aparicio](http://github.com/h2non)
-* Felix Zapata
+* [Felix Zapata](https://github.com/felixzapata)
 
 ## License
 
