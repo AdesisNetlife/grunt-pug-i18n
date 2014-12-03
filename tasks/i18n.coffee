@@ -138,6 +138,6 @@ module.exports = (grunt) ->
       else
         data = grunt.file.readJSON filepath
     catch e
-      grunt.fail.warm "Cannot parse file '#{filepath}': #{e.message}", 3
+      grunt.fail.warn "Cannot parse file '#{filepath}': #{e.message}", 3
 
     data
