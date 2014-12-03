@@ -1,7 +1,7 @@
 {
   "name": "grunt-jade-i18n",
   "description": "Compile Jade templates via Grunt with internalization support",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/adesisnetlife/grunt-jade-i18n",
   "author": {
     "name": "Tomas Aparicio",
