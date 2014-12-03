@@ -1,4 +1,4 @@
-# grunt-jade-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.png)][travis] [![Dependency Status](https://gemnasium.com/AdesisNetlife/grunt-jade-i18n.png)][dependencies] [![NPM version](https://badge.fury.io/js/grunt-jade-i18n.png)][badge] ![Downloads](https://img.shields.io/npm/dm/grunt-jade-i18n.svg)
+# grunt-jade-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.png)][travis] [![Dependency Status](https://gemnasium.com/AdesisNetlife/grunt-jade-i18n.png)][dependencies] [![Downloads](https://img.shields.io/npm/dm/grunt-jade-i18n.svg)][npm]
 
 
 > Compile Jade templates with internationalization support
@@ -188,6 +188,6 @@ Released under MIT license
 [4]: https://github.com/AdesisNetlife/grunt-jade-i18n/tree/master/test
 [5]: https://github.com/AdesisNetlife/grunt-jade-i18n/blob/master/Gruntfile.coffee
 [travis]: https://travis-ci.org/AdesisNetlife/grunt-jade-i18n
-[badge]: http://badge.fury.io/js/grunt-jade-i18n
+[npm]: https://www.npmjs.org/package/grunt-jade-i18n
 [dependencies]: https://gemnasium.com/AdesisNetlife/grunt-jade-i18n
 
