@@ -1,11 +1,12 @@
-# grunt-jade-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.png)][travis] [![Dependency Status](https://gemnasium.com/AdesisNetlife/grunt-jade-i18n.png)][dependencies] [![NPM version](https://badge.fury.io/js/grunt-jade-i18n.png)][badge]
+# grunt-jade-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.png)][travis] [![Dependency Status](https://gemnasium.com/AdesisNetlife/grunt-jade-i18n.png)][dependencies] [![NPM version](https://badge.fury.io/js/grunt-jade-i18n.png)][badge] ![Downloads](https://img.shields.io/npm/dm/grunt-jade-i18n.svg)
+
 
 > Compile Jade templates with internationalization support
 
 ## Getting started
 
-This plugin is exactly the same as [grunt-contrib-jade][1], but it adds high level support
-for [Jade][3] template internationalization based on JSON/YAML/JS files.
+This plugin is exactly the same like [grunt-contrib-jade][1], but it adds high level support
+for [Jade][3] template internationalization based on JSON/YAML/JS files
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](hettp://gruntjs.com/sample-gruntfil) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -140,6 +141,8 @@ $ npm test
 
 ## Release History
 
+- **0.3.1** `2014.12.03`
+    - Fix #18
 - **0.3.0** `2014.09.16`
     - Uninstall `grunt-newer`
     - Adds compatibility with external tasks like `grunt-newer`
