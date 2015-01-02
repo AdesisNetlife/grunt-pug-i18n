@@ -1,7 +1,7 @@
 {
   "name": "grunt-jade-i18n",
   "description": "Compile Jade templates via Grunt with internalization support",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://github.com/adesisnetlife/grunt-jade-i18n",
   "author": {
     "name": "Tomas Aparicio",
@@ -11,7 +11,7 @@
   "licenses": "MIT",
   "engineStrict": true,
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "test": "grunt test"
@@ -35,6 +35,10 @@
     "jade",
     "translation",
     "i18n",
+    "translate",
+    "multilanguage",
+    "language",
+    "template",
     "internationalization"
   ]
 }
