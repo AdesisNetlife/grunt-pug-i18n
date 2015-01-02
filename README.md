@@ -140,6 +140,8 @@ $ npm test
 
 ## Release History
 
+- **0.3.2** `2015.01.02`
+    - Bump grunt-contrib-jade version
 - **0.3.1** `2014.12.03`
     - Fix #18
 - **0.3.0** `2014.09.16`
@@ -166,9 +168,9 @@ $ npm test
 - **0.1.0** `2013.12.09`
     - Initial release
 
-## To Do
+## Contribute
 
-Do you miss something? Open an issue or make a PR!
+Did you miss something? Open an issue or make a PR!
 
 ## Contributors
 
@@ -177,7 +179,7 @@ Do you miss something? Open an issue or make a PR!
 
 ## License
 
-Copyright (c) 2013 Adesis Netlife S.L
+Copyright (c) Adesis Netlife S.L
 
 Released under MIT license
 
