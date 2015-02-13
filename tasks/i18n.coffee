@@ -90,8 +90,6 @@ module.exports = (grunt) ->
     else
       grunt.task.run 'contrib-jade'
 
-
-
   getExtension = (filepath) ->
     path.extname filepath
 
@@ -100,14 +98,16 @@ module.exports = (grunt) ->
       ext = '.' + ext
     ext
 
+  s = (file) -> 
+    path.basename(file.src[0]).split('.').shift()
+
   addLocaleExtensionDest = (file, locale, outputExt) ->
     locale = locale.toLowerCase()
-    getBaseName = -> path.basename(file.src[0]).split('.')[0]
-
+  
     if ext = getExtension file.dest
       dest = path.join path.dirname(file.dest), path.basename(file.dest, ext) + ".#{locale}"
     else
-      dest = path.join file.dest, getBaseName() + ".#{locale}"
+      dest = path.join file.dest, getBaseName(file) + ".#{locale}"
 
     if file.orig.ext
       dest += setExtension file.orig.ext
@@ -117,12 +117,14 @@ module.exports = (grunt) ->
     file.dest = file.orig.dest = dest
 
   addLocaleDirnameDest = (file, locale, outputExt) ->
+    throw new TypeError 'Missing the template destination path' unless file.dest
+    
     if ext = getExtension file.dest
       dest = path.join path.dirname(file.dest), locale, path.basename(file.dest, ext) + setExtension ext
     else
       if /(\/|\*+)$/i.test file.dest
         base = file.dest.split('/')
-        dest = path.join path.join.apply(null, base.slice(0, -1)), locale, base.slice(-1)[0]
+        dest = path.join path.join.apply(null, base.slice(0, -1)), locale, base.slice(-1).shift()
       else
         dest = path.join file.dest, locale
 
