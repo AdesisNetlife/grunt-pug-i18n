@@ -97,12 +97,12 @@ module.exports = (grunt) ->
       ext = '.' + ext
     ext
 
-  s = (file) -> 
+  s = (file) ->
     path.basename(file.src[0]).split('.').shift()
 
   addLocaleExtensionDest = (file, locale, outputExt) ->
     locale = locale.toLowerCase()
-  
+
     if ext = getExtension file.dest
       dest = path.join path.dirname(file.dest), path.basename(file.dest, ext) + ".#{locale}"
     else
@@ -117,7 +117,7 @@ module.exports = (grunt) ->
 
   addLocaleDirnameDest = (file, locale, outputExt) ->
     throw new TypeError 'Missing the template destination path' unless file.dest
-    
+
     if ext = getExtension file.dest
       dest = path.join path.dirname(file.dest), locale, path.basename(file.dest, ext) + setExtension ext
     else
