@@ -1,7 +1,7 @@
 {
   "name": "grunt-jade-i18n",
   "description": "Compile Jade templates via Grunt with internalization support",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "author": {
     "name": "Tomas Aparicio",
     "url": "https://github.com/h2non"

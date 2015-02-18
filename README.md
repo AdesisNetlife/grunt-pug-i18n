@@ -140,6 +140,10 @@ $ npm test
 
 ## Release History
 
+- **0.3.4** `2015.02.18`
+    - Fix error in multiple running tasks (#22, #23)
+- **0.3.3** `2015.02.08`
+    - Maintance release
 - **0.3.2** `2015.01.02`
     - Bump grunt-contrib-jade version
 - **0.3.1** `2014.12.03`
