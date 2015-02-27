@@ -65,7 +65,7 @@ _See [Gruntfile][5] for more configuration examples_
 }
 ```
 
-##### Example Jade template with internationalization
+##### Example Jade template
 ```jade
 body
   h1 #{$i18n.hello.world}!
@@ -79,21 +79,21 @@ Only `jade-i18n` specific options are listed below
 To see all the available options available, please see [grunt-contrib-jade][2]
 
 #### locales
-Type: String|Array
+Type: `string|array`
 
 Path to localization files. Please check the examples in tests. Glob patterns can be used
 
 `JSON`, `YAML` and `JS` formats are supported for the translation templates
 
 #### namespace
-Type: String
-Default: '$i18n'
+Type: `string`
+Default: `$i18n`
 
 Namespace to expose translation keys in Jade template
 
 #### localeExtension
-Type: Boolean
-Default: false
+Type: `boolean`
+Default: `false`
 
 Generate the HTML output files with the extension prefix with the current language.
 By default it will create different folders for each language
