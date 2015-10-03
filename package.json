@@ -16,6 +16,7 @@
     "test": "grunt test"
   },
   "dependencies": {
+    "grunt-contrib-jade": "~0.15.0",
     "lodash": "~3.5.0"
   },
   "devDependencies": {
@@ -26,7 +27,6 @@
     "grunt-release": "~0.6.0"
   },
   "peerDependencies": {
-    "grunt-contrib-jade": "~0.15.0",
     "grunt": "~0.4.4"
   },
   "keywords": [
