@@ -3,18 +3,12 @@ _ = require 'lodash'
 
 module.exports = (grunt) ->
 
-  try
-    require 'grunt-contrib-jade'
-    grunt.loadNpmTasks 'grunt-contrib-jade'
-  catch e
-    grunt.loadTasks path.join "#{__dirname}/../node_modules", 'grunt-contrib-jade', 'tasks'
+  grunt.loadNpmTasks('grunt-contrib-jade')
 
-  grunt.renameTask 'jade', 'contrib-jade'
-
-  grunt.registerMultiTask 'jade', 'Compile Jade template with internalization support', ->
+  grunt.registerMultiTask 'jade-i18n', 'Compile Jade template with internalization support', ->
 
     jadeConfig = null
-    jadeOrigConfig = grunt.config.get('jade')[@target]
+    jadeOrigConfig = grunt.config.get('jade-i18n')[@target]
 
     gruntTaskName = grunt.cli.tasks
     anotherTargetsForTask = gruntTaskName[0].split ':jade' if gruntTaskName?[0]?
@@ -78,16 +72,13 @@ module.exports = (grunt) ->
 
     # set the extended config object to the original Jade task
     if jadeConfig
-      grunt.config.set 'contrib-jade', jadeConfig
+      grunt.config.set 'jade', jadeConfig
     else
-      grunt.config.set "contrib-jade.#{@target}", jadeOrigConfig
+      grunt.config.set "jade.#{@target}", jadeOrigConfig
 
     # finally run the original Jade task
     # check if we uses external tasks like grunt-newer
-    if anotherTargetsForTask?.length > 1 and not languageHasChanged
-      grunt.task.run anotherTargetsForTask[0] + ':contrib-jade'
-    else
-      grunt.task.run 'contrib-jade'
+    grunt.task.run 'jade'
 
   getExtension = (filepath) ->
     path.extname filepath
