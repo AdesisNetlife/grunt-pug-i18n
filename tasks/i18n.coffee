@@ -3,11 +3,7 @@ _ = require 'lodash'
 
 module.exports = (grunt) ->
 
-  try
-    require 'grunt-contrib-jade'
-    grunt.loadNpmTasks 'grunt-contrib-jade'
-  catch e
-    grunt.loadTasks path.join "#{__dirname}/../node_modules", 'grunt-contrib-jade', 'tasks'
+  grunt.loadNpmTasks('grunt-contrib-jade')
 
   grunt.renameTask 'jade', 'contrib-jade'
 
