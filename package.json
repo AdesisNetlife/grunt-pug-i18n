@@ -16,8 +16,8 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "grunt-contrib-jade": "~0.14.0",
-    "lodash": "~3.5.0"
+    "grunt-contrib-jade": "~0.15.0",
+    "lodash": "~3.10.1"
   },
   "devDependencies": {
     "grunt-contrib-nodeunit": "~0.4.1",

@@ -62,16 +62,16 @@ module.exports = (grunt) ->
         opts = config.options = if not config.options then {} else config.options
 
         # set the i18n custom vars
-        optsDataPostProcessor = (data) =>
+        optsDataPostProcessor = (data) ->
           data = {} unless _.isPlainObject data
-          data = _.extend resultData, readFile filepath
+          data = _.extend data, readFile filepath
           data[namespace] = readFile filepath
           data.$localeName = locale
           data
 
         if typeof opts.data is 'function'
           innerFunc = opts.data
-          opts.data = (dest, orig) =>
+          opts.data = (dest, orig) ->
             optsDataPostProcessor(innerFunc dest, orig)
         else
           optsDataPostProcessor opts.data
