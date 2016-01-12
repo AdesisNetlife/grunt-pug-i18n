@@ -16,6 +16,9 @@ module.exports = (grunt) ->
     jadeConfig = null
     jadeOrigConfig = grunt.config.get('jade')[@target]
 
+    gruntTaskName = grunt.cli.tasks
+    anotherTargetsForTask = gruntTaskName[0].split ':jade' if gruntTaskName?[0]?
+
     options = @options()
     options.i18n = {} unless options.i18n
     { locales, namespace, localeExtension, defaultExt } = options.i18n
@@ -27,8 +30,23 @@ module.exports = (grunt) ->
 
     if locales and locales.length
       jadeConfig = {}
+      languageHasChanged = false
 
       grunt.file.expand(locales).forEach (filepath) =>
+
+        pathToStoredLanguage = path.join(__dirname, 'temp', @target, path.basename(filepath))
+        if grunt.file.exists pathToStoredLanguage
+          # compare previous language file with the current
+          currentLanguage = grunt.file.read(filepath)
+          storedLanguage = grunt.file.read(pathToStoredLanguage)
+          if currentLanguage == storedLanguage
+            languageHasChanged = false
+          else
+            languageHasChanged = true
+            grunt.file.copy filepath, pathToStoredLanguage
+        else
+          grunt.file.mkdir path.join(__dirname, 'temp', @target)
+          grunt.file.copy filepath, pathToStoredLanguage
 
         # get the language code
         fileExt = filepath.split('.').slice(-1)[0]
@@ -46,6 +64,7 @@ module.exports = (grunt) ->
         opts.data = {} unless _.isPlainObject opts.data
         opts.data = _.extend opts.data, readFile filepath
         opts.data[namespace] = readFile filepath
+        opts.data.$localeName = locale
 
         # translate output destination for each language
         config.files = _.cloneDeep(@files).map (file) ->
@@ -54,7 +73,6 @@ module.exports = (grunt) ->
           else
             addLocaleDirnameDest file, locale, defaultExt
           file
-
     else
       grunt.log.ok 'Locales files not found. Nothing to translate'
 
@@ -65,9 +83,11 @@ module.exports = (grunt) ->
       grunt.config.set "contrib-jade.#{@target}", jadeOrigConfig
 
     # finally run the original Jade task
-    grunt.task.run 'contrib-jade'
-
-
+    # check if we uses external tasks like grunt-newer
+    if anotherTargetsForTask?.length > 1 and not languageHasChanged
+      grunt.task.run anotherTargetsForTask[0] + ':contrib-jade'
+    else
+      grunt.task.run 'contrib-jade'
 
   getExtension = (filepath) ->
     path.extname filepath
@@ -77,14 +97,16 @@ module.exports = (grunt) ->
       ext = '.' + ext
     ext
 
+  s = (file) ->
+    path.basename(file.src[0]).split('.').shift()
+
   addLocaleExtensionDest = (file, locale, outputExt) ->
     locale = locale.toLowerCase()
-    getBaseName = -> path.basename(file.src[0]).split('.')[0]
 
     if ext = getExtension file.dest
       dest = path.join path.dirname(file.dest), path.basename(file.dest, ext) #+ ".#{locale}"
     else
-      dest = path.join file.dest, getBaseName() + ".#{locale}"
+      dest = path.join file.dest, getBaseName(file) + ".#{locale}"
 
     if file.orig.ext
       dest += setExtension file.orig.ext
@@ -94,12 +116,14 @@ module.exports = (grunt) ->
     file.dest = file.orig.dest = dest
 
   addLocaleDirnameDest = (file, locale, outputExt) ->
+    throw new TypeError 'Missing the template destination path' unless file.dest
+
     if ext = getExtension file.dest
       dest = path.join path.dirname(file.dest), locale, path.basename(file.dest, ext) + setExtension ext
     else
       if /(\/|\*+)$/i.test file.dest
         base = file.dest.split('/')
-        dest = path.join path.join.apply(null, base.slice(0, -1)), locale, base.slice(-1)[0]
+        dest = path.join path.join.apply(null, base.slice(0, -1)), locale, base.slice(-1).shift()
       else
         dest = path.join file.dest, locale
 
@@ -115,6 +139,6 @@ module.exports = (grunt) ->
       else
         data = grunt.file.readJSON filepath
     catch e
-      grunt.fail.warm "Cannot parse file '#{filepath}': #{e.message}", 3
+      grunt.fail.warn "Cannot parse file '#{filepath}': #{e.message}", 3
 
     data

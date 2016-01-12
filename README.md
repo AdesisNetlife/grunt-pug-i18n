@@ -1,25 +1,22 @@
-# grunt-jade-i18n
+# grunt-jade-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.svg)][travis] [![Dependency Status](https://gemnasium.com/AdesisNetlife/grunt-jade-i18n.svg)][dependencies] [![Downloads](https://img.shields.io/npm/dm/grunt-jade-i18n.svg)][npm]
 
-[![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.png)][travis] [![Dependency Status](https://gemnasium.com/AdesisNetlife/grunt-jade-i18n.png)][dependencies] [![NPM version](https://badge.fury.io/js/grunt-jade-i18n.png)][badge]
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/AdesisNetlife/grunt-jade-i18n/trend.png)](https://bitdeli.com/AdesisNetlife/grunt-jade-i18n "Bitdeli Badge")
-
-> Compile Jade templates (with internationalization and translation support)
+Compile Jade templates with internationalization support based on JS/JSON/YAML files using [Grunt](http://gruntjs.com)
 
 ## Getting started
 
-This plugin is exactly the same as [grunt-contrib-jade][1], but it adds high level support
+This plugin is exactly the same like [grunt-contrib-jade][1], but it adds high level support
 for [Jade][3] template internationalization based on JSON/YAML/JS files
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](hettp://gruntjs.com/sample-gruntfil) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
-```shell
-npm install grunt-jade-i18n --save-dev
+```bash
+$ npm install grunt-jade-i18n --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile:
 
 ```js
-grunt.loadNpmTasks('grunt-jade-i18n');
+grunt.loadNpmTasks('grunt-jade-i18n')
 ```
 
 This plugin requires Grunt `~0.4.0`
@@ -68,10 +65,11 @@ _See [Gruntfile][5] for more configuration examples_
 }
 ```
 
-##### Example Jade template with internationalization
+##### Example Jade template
 ```jade
 body
   h1 #{$i18n.hello.world}!
+  p Using locale #{$localeName}
 ```
 
 ### Options
@@ -81,21 +79,21 @@ Only `jade-i18n` specific options are listed below
 To see all the available options available, please see [grunt-contrib-jade][2]
 
 #### locales
-Type: String|Array
+Type: `string|array`
 
 Path to localization files. Please check the examples in tests. Glob patterns can be used
 
 `JSON`, `YAML` and `JS` formats are supported for the translation templates
 
 #### namespace
-Type: String
-Default: '$i18n'
+Type: `string`
+Default: `$i18n`
 
 Namespace to expose translation keys in Jade template
 
 #### localeExtension
-Type: Boolean
-Default: false
+Type: `boolean`
+Default: `false`
 
 Generate the HTML output files with the extension prefix with the current language.
 By default it will create different folders for each language
@@ -142,10 +140,27 @@ $ npm test
 
 ## Release History
 
+- **0.3.4** `2015.02.18`
+    - Fix error in multiple running tasks (#22, #23)
+- **0.3.3** `2015.02.08`
+    - Maintance release
+- **0.3.2** `2015.01.02`
+    - Bump grunt-contrib-jade version
+- **0.3.1** `2014.12.03`
+    - Fix #18
+- **0.3.0** `2014.09.16`
+    - Uninstall `grunt-newer`
+    - Adds compatibility with external tasks like `grunt-newer`
+- **0.2.1** `2014.08.04`
+    - Fix #14
+- **0.2.0** `2014.06.26`
+    - Installs and uses `grunt-newer`
+- **0.1.7** `2014.04.22`
+    - Replace caret (^) with tilde (~) for grunt-contrib-jade version
 - **0.1.5** `2013.01.07`
     - Fix #4
 - **0.1.4** `2013.01.03`
-    - Upgrade `grunt-contrib-fade` task dependency to 0.9.0
+    - Upgrade `grunt-contrib-jade` task dependency to 0.9.0
 - **0.1.3** `2013.12.19`
     - Fix #2
     - Fix #3
@@ -157,17 +172,18 @@ $ npm test
 - **0.1.0** `2013.12.09`
     - Initial release
 
-## To Do
+## Contribute
 
-Do you miss something? Open an issue or make a PR!
+Did you miss something? Open an issue or make a PR!
 
 ## Contributors
 
 * [Tomas Aparicio](http://github.com/h2non)
+* [Felix Zapata](https://github.com/felixzapata)
 
 ## License
 
-Copyright (c) 2013 Adesis Netlife S.L
+Copyright (c) Adesis Netlife S.L
 
 Released under MIT license
 
@@ -177,6 +193,6 @@ Released under MIT license
 [4]: https://github.com/AdesisNetlife/grunt-jade-i18n/tree/master/test
 [5]: https://github.com/AdesisNetlife/grunt-jade-i18n/blob/master/Gruntfile.coffee
 [travis]: https://travis-ci.org/AdesisNetlife/grunt-jade-i18n
-[badge]: http://badge.fury.io/js/grunt-jade-i18n
+[npm]: https://www.npmjs.org/package/grunt-jade-i18n
 [dependencies]: https://gemnasium.com/AdesisNetlife/grunt-jade-i18n
 
