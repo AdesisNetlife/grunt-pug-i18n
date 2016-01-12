@@ -60,11 +60,21 @@ module.exports = (grunt) ->
         grunt.verbose.writeln "Reading translation data: #{filepath}"
 
         opts = config.options = if not config.options then {} else config.options
-        opts.data = opts.data() or {} if typeof opts.data is 'function'
-        opts.data = {} unless _.isPlainObject opts.data
-        opts.data = _.extend opts.data, readFile filepath
-        opts.data[namespace] = readFile filepath
-        opts.data.$localeName = locale
+
+        # set the i18n custom vars
+        optsDataPostProcessor = (data) =>
+          data = {} unless _.isPlainObject data
+          data = _.extend resultData, readFile filepath
+          data[namespace] = readFile filepath
+          data.$localeName = locale
+          data
+
+        if typeof opts.data is 'function'
+          innerFunc = opts.data
+          opts.data = (dest, orig) =>
+            optsDataPostProcessor(innerFunc dest, orig)
+        else
+          optsDataPostProcessor opts.data
 
         # translate output destination for each language
         config.files = _.cloneDeep(@files).map (file) ->
