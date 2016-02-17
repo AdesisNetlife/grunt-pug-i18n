@@ -21,7 +21,7 @@ module.exports = (grunt) ->
 
     options = @options()
     options.i18n = {} unless options.i18n
-    { locales, namespace, localeExtension, defaultExt } = options.i18n
+    { locales, namespace, localeExtension, defaultExt, defaultLocale } = options.i18n
 
     # set default options
     namespace = '$i18n' unless namespace?
@@ -68,10 +68,11 @@ module.exports = (grunt) ->
 
         # translate output destination for each language
         config.files = _.cloneDeep(@files).map (file) ->
+          _locale = unless defaultLocale is locale then locale else ''
           if localeExtension
-            addLocaleExtensionDest file, locale, defaultExt
+            addLocaleExtensionDest file, _locale, defaultExt
           else
-            addLocaleDirnameDest file, locale, defaultExt
+            addLocaleDirnameDest file, _locale, defaultExt
           file
     else
       grunt.log.ok 'Locales files not found. Nothing to translate'
