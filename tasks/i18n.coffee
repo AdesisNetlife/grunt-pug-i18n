@@ -119,17 +119,18 @@ module.exports = (grunt) ->
     file.dest = file.orig.dest = dest
 
   addLocaleFolderDest = (file, locale, outputExt) ->
-    throw new TypeError 'Missing the tuna destination path' unless file.dest
+    throw new TypeError 'Missing the template destination path' unless file.dest
+
+    relative = file.dest.slice file.orig.dest.length + 1
 
     if ext = getExtension file.dest
-      relative = file.dest.slice(file.orig.dest.length + 1)
       dest = path.join file.orig.dest, locale, path.dirname(relative), path.basename(relative, ext) + setExtension ext
     else
-      if /(\/|\*+)$/i.test file.dest
-        base = file.dest.split('/')
-        dest = path.join path.join.apply(null, base.slice(0, -1)), locale, base.slice(-1).shift()
+      if /(\/|\*+)$/i.test relative
+        base = relative.split('/')
+        dest = path.join file.orig.dest, locale, path.join.apply(null, base.slice(0, -1)), base.slice(-1).shift()
       else
-        dest = path.join file.dest, locale
+        dest = path.join file.orig.dest, locale, relative
 
     dest = dest.replace /\.jade$/i, setExtension outputExt
     file.dest = file.orig.dest = dest
