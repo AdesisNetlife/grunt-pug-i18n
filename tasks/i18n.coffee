@@ -26,8 +26,8 @@ module.exports = (grunt) ->
 
     # set default options
     namespace = '$i18n' unless namespace?
-    localeExtension = no unless localeExtension?
-    localeFolders   = no unless localeFolders?
+    localeExtension = no unless localeExtension
+    # localeFolders = no unless localeFolders?
     defaultExt = '.html' unless defaultExt?
 
     if locales and locales.length
@@ -35,8 +35,8 @@ module.exports = (grunt) ->
       languageHasChanged = false
 
       grunt.file.expand(locales).forEach (filepath) =>
-
         pathToStoredLanguage = path.join(__dirname, 'temp', @target, path.basename(filepath))
+
         if grunt.file.exists pathToStoredLanguage
           # compare previous language file with the current
           currentLanguage = grunt.file.read(filepath)
@@ -71,12 +71,18 @@ module.exports = (grunt) ->
         # translate output destination for each language
         config.files = _.cloneDeep(@files).map (file) ->
           _locale = unless defaultLocale is locale then locale else ''
+          # Define the locale in generated file names
           if localeExtension
-            addLocaleExtensionDest file, _locale, defaultExt
+            addLocaleExtensionDest file, locale, defaultExt
+
+          # Use locale folders generation
           if localeFolders
-            addLocaleFolderDest file, locale, defaultExt
-          else
+            addLocaleFolderDest file, _locale, defaultExt
+
+          # Use folder based language generation
+          if not localeFolders and not localeExtension
             addLocaleDirnameDest file, _locale, defaultExt
+
           file
     else
       grunt.log.ok 'Locales files not found. Nothing to translate'
