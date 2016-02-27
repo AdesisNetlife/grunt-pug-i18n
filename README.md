@@ -1,4 +1,4 @@
-# grunt-jade-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.svg)][travis] [![Dependency Status](https://gemnasium.com/AdesisNetlife/grunt-jade-i18n.svg)][dependencies] [![Downloads](https://img.shields.io/npm/dm/grunt-jade-i18n.svg)][npm]
+# grunt-jade-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.svg)][travis] [![Downloads](https://img.shields.io/npm/dm/grunt-jade-i18n.svg)][npm]
 
 Compile Jade templates with internationalization support based on JS/JSON/YAML files using [Grunt](http://gruntjs.com)
 
