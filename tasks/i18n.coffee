@@ -21,11 +21,13 @@ module.exports = (grunt) ->
 
     options = @options()
     options.i18n = {} unless options.i18n
-    { locales, namespace, localeExtension, defaultExt, defaultLocale } = options.i18n
+
+    { locales, namespace, localeExtension, defaultExt, defaultLocale, localeFolders } = options.i18n
 
     # set default options
     namespace = '$i18n' unless namespace?
     localeExtension = no unless localeExtension?
+    localeFolders   = no unless localeFolders?
     defaultExt = '.html' unless defaultExt?
 
     if locales and locales.length
@@ -71,6 +73,8 @@ module.exports = (grunt) ->
           _locale = unless defaultLocale is locale then locale else ''
           if localeExtension
             addLocaleExtensionDest file, _locale, defaultExt
+          if localeFolders
+            addLocaleFolderDest file, locale, defaultExt
           else
             addLocaleDirnameDest file, _locale, defaultExt
           file
@@ -114,6 +118,23 @@ module.exports = (grunt) ->
     else
       dest += setExtension outputExt
 
+    file.dest = file.orig.dest = dest
+
+  addLocaleFolderDest = (file, locale, outputExt) ->
+    throw new TypeError 'Missing the template destination path' unless file.dest
+
+    relative = file.dest.slice file.orig.dest.length + 1
+
+    if ext = getExtension file.dest
+      dest = path.join file.orig.dest, locale, path.dirname(relative), path.basename(relative, ext) + setExtension ext
+    else
+      if /(\/|\*+)$/i.test relative
+        base = relative.split('/')
+        dest = path.join file.orig.dest, locale, path.join.apply(null, base.slice(0, -1)), base.slice(-1).shift()
+      else
+        dest = path.join file.orig.dest, locale, relative
+
+    dest = dest.replace /\.jade$/i, setExtension outputExt
     file.dest = file.orig.dest = dest
 
   addLocaleDirnameDest = (file, locale, outputExt) ->
