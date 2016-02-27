@@ -27,9 +27,6 @@
     "grunt-coffeelint": "~0.0.6",
     "grunt-release": "~0.6.0"
   },
-  "peerDependencies": {
-    "grunt": "~0.4.4"
-  },
   "keywords": [
     "gruntplugin",
     "jade",
