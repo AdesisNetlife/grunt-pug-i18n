@@ -4,20 +4,20 @@ _ = require 'lodash'
 module.exports = (grunt) ->
 
   try
-    require 'grunt-contrib-jade'
-    grunt.loadNpmTasks 'grunt-contrib-jade'
+    require 'grunt-contrib-pug'
+    grunt.loadNpmTasks 'grunt-contrib-pug'
   catch e
-    grunt.loadTasks path.join "#{__dirname}/../node_modules", 'grunt-contrib-jade', 'tasks'
+    grunt.loadTasks path.join "#{__dirname}/../node_modules", 'grunt-contrib-pug', 'tasks'
 
-  grunt.renameTask 'jade', 'contrib-jade'
+  grunt.renameTask 'pug', 'contrib-pug'
 
-  grunt.registerMultiTask 'jade', 'Compile Jade template with internalization support', ->
+  grunt.registerMultiTask 'pug', 'Compile Pug template with internalization support', ->
 
-    jadeConfig = null
-    jadeOrigConfig = grunt.config.get('jade')[@target]
+    pugConfig = null
+    pugOrigConfig = grunt.config.get('pug')[@target]
 
     gruntTaskName = grunt.cli.tasks
-    anotherTargetsForTask = gruntTaskName[0].split ':jade' if gruntTaskName?[0]?
+    anotherTargetsForTask = gruntTaskName[0].split ':pug' if gruntTaskName?[0]?
 
     options = @options()
     options.i18n = {} unless options.i18n
@@ -31,7 +31,7 @@ module.exports = (grunt) ->
     defaultExt = '.html' unless defaultExt?
 
     if locales and locales.length
-      jadeConfig = {}
+      pugConfig = {}
       languageHasChanged = false
 
       grunt.file.expand(locales).forEach (filepath) =>
@@ -56,7 +56,7 @@ module.exports = (grunt) ->
         grunt.log.ok "Loading locale '#{locale}'"
 
         # create the new config as subtask for each language, based on the original task config
-        jadeConfig["#{@target or @name}-#{locale}"] = config = _.cloneDeep jadeOrigConfig
+        pugConfig["#{@target or @name}-#{locale}"] = config = _.cloneDeep pugOrigConfig
 
         # read data from translation file
         grunt.verbose.writeln "Reading translation data: #{filepath}"
@@ -87,18 +87,18 @@ module.exports = (grunt) ->
     else
       grunt.log.ok 'Locales files not found. Nothing to translate'
 
-    # set the extended config object to the original Jade task
-    if jadeConfig
-      grunt.config.set 'contrib-jade', jadeConfig
+    # set the extended config object to the original Pug task
+    if pugConfig
+      grunt.config.set 'contrib-pug', pugConfig
     else
-      grunt.config.set "contrib-jade.#{@target}", jadeOrigConfig
+      grunt.config.set "contrib-pug.#{@target}", pugOrigConfig
 
-    # finally run the original Jade task
+    # finally run the original Pug task
     # check if we uses external tasks like grunt-newer
     if anotherTargetsForTask?.length > 1 and not languageHasChanged
-      grunt.task.run anotherTargetsForTask[0] + ':contrib-jade'
+      grunt.task.run anotherTargetsForTask[0] + ':contrib-pug'
     else
-      grunt.task.run 'contrib-jade'
+      grunt.task.run 'contrib-pug'
 
   getExtension = (filepath) ->
     path.extname filepath
@@ -140,7 +140,7 @@ module.exports = (grunt) ->
       else
         dest = path.join file.orig.dest, locale, relative
 
-    dest = dest.replace /\.jade$/i, setExtension outputExt
+    dest = dest.replace /\.pug$/i, setExtension outputExt
     file.dest = file.orig.dest = dest
 
   addLocaleDirnameDest = (file, locale, outputExt) ->
@@ -155,7 +155,7 @@ module.exports = (grunt) ->
       else
         dest = path.join file.dest, locale
 
-    dest = dest.replace /\.jade$/i, setExtension outputExt
+    dest = dest.replace /\.pug$/i, setExtension outputExt
     file.dest = file.orig.dest = dest
 
   readFile = (filepath) ->
