@@ -1,33 +1,33 @@
-# grunt-jade-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-jade-i18n.svg)][travis] [![Downloads](https://img.shields.io/npm/dm/grunt-jade-i18n.svg)][npm]
+# grunt-pug-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-pug-i18n.svg)][travis] [![Downloads](https://img.shields.io/npm/dm/grunt-pug-i18n.svg)][npm]
 
-Compile Jade templates with internationalization support based on JS/JSON/YAML files using [Grunt](http://gruntjs.com)
+Compile Pug templates with internationalization support based on JS/JSON/YAML files using [Grunt](http://gruntjs.com)
 
 ## Getting started
 
-This plugin is exactly the same like [grunt-contrib-jade][1], but it adds high level support
-for [Jade][3] template internationalization based on JSON/YAML/JS files
+This plugin is exactly the same like [grunt-contrib-pug][1], but it adds high level support
+for [Pug][3] template internationalization based on JSON/YAML/JS files
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](hettp://gruntjs.com/sample-gruntfil) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```bash
-$ npm install grunt-jade-i18n --save-dev
+$ npm install grunt-pug-i18n --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile:
 
 ```js
-grunt.loadNpmTasks('grunt-jade-i18n')
+grunt.loadNpmTasks('grunt-pug-i18n')
 ```
 
 This plugin requires Grunt `~0.4.0`
 
-## The "jade" task
+## The "pug" task
 
-_Run this task with the `grunt jade` command._
+_Run this task with the `grunt pug` command._
 
 Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide
 
-This plugin provides a localization mechanism for Jade templates.
+This plugin provides a localization mechanism for Pug templates.
 Since localization is done once during the build process, there is no performance hit on the application, opposed to dynamic translation on the client side
 
 
@@ -36,19 +36,19 @@ Since localization is done once during the build process, there is no performanc
 ##### Gruntfile configuration
 ```js
 grunt.initConfig({
-  jade: {
+  pug: {
     templates: {
       options: {
-        // jade i18n specific options
+        // Pug i18n specific options
         i18n: {
           locales: 'locales/*.json',
           namespace: '$i18n'
         },
-        // Jade specific options
+        // Pug specific options
         pretty: true
       },
       files: {
-        "path/to/dest.html": ["path/to/templates/*.jade", "another/path/tmpl.jade"]
+        "path/to/dest.html": ["path/to/templates/*.pug", "another/path/tmpl.pug"]
       }
     }
   }
@@ -65,8 +65,8 @@ _See [Gruntfile][5] for more configuration examples_
 }
 ```
 
-##### Example Jade template
-```jade
+##### Example Pug template
+```pug
 body
   h1 #{$i18n.hello.world}!
   p Using locale #{$localeName}
@@ -74,9 +74,9 @@ body
 
 ### Options
 
-Only `jade-i18n` specific options are listed below
+Only `pug-i18n` specific options are listed below
 
-To see all the available options available, please see [grunt-contrib-jade][2]
+To see all the available options available, please see [grunt-contrib-pug][2]
 
 #### locales
 Type: `string|array`
@@ -89,7 +89,7 @@ Path to localization files. Please check the examples in tests. Glob patterns ca
 Type: `string`
 Default: `$i18n`
 
-Namespace to expose translation keys in Jade template
+Namespace to expose translation keys in Pug template
 
 #### localeExtension
 Type: `boolean`
@@ -125,7 +125,7 @@ Add unit tests for any new or changed functionality
 
 Clone the repository
 ```shell
-$ git clone https://github.com/adesisnetlife/grunt-jade-i18n.git && cd grunt-jade-i18n
+$ git clone https://github.com/adesisnetlife/grunt-pug-i18n.git && cd grunt-pug-i18n
 ```
 
 Install dependencies
@@ -140,6 +140,8 @@ $ npm test
 
 ## Release History
 
+- **0.5.0** `2016.05.10`
+    - Rename to `grunt-pug-i18n`
 - **0.3.4** `2015.02.18`
     - Fix error in multiple running tasks (#22, #23)
 - **0.3.3** `2015.02.08`
@@ -187,12 +189,11 @@ Copyright (c) Adesis Netlife S.L
 
 Released under MIT license
 
-[1]: https://github.com/gruntjs/grunt-contrib-jade
-[2]: https://github.com/gruntjs/grunt-contrib-jade#options
+[1]: https://github.com/gruntjs/grunt-contrib-pug
+[2]: https://github.com/gruntjs/grunt-contrib-pug#options
 [3]: http://jade-lang.com/
-[4]: https://github.com/AdesisNetlife/grunt-jade-i18n/tree/master/test
-[5]: https://github.com/AdesisNetlife/grunt-jade-i18n/blob/master/Gruntfile.coffee
-[travis]: https://travis-ci.org/AdesisNetlife/grunt-jade-i18n
-[npm]: https://www.npmjs.org/package/grunt-jade-i18n
-[dependencies]: https://gemnasium.com/AdesisNetlife/grunt-jade-i18n
-
+[4]: https://github.com/AdesisNetlife/grunt-pug-i18n/tree/master/test
+[5]: https://github.com/AdesisNetlife/grunt-pug-i18n/blob/master/Gruntfile.coffee
+[travis]: https://travis-ci.org/AdesisNetlife/grunt-pug-i18n
+[npm]: https://www.npmjs.org/package/grunt-pug-i18n
+[dependencies]: https://gemnasium.com/AdesisNetlife/grunt-pug-i18n

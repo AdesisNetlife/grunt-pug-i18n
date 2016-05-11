@@ -30,14 +30,14 @@ module.exports = (grunt) ->
       options:
         bare: true
 
-    jade:
+    pug:
       translateDir:
         options:
           i18n:
             locales: 'test/locales/*'
           pretty: true
         files:
-          '.tmp/sample.jade': 'test/fixtures/directory/*.jade'
+          '.tmp/sample.pug': 'test/fixtures/directory/*.pug'
 
       translateFile:
         options:
@@ -52,7 +52,7 @@ module.exports = (grunt) ->
           expand: true
           ext: '.html'
           cwd: 'test/fixtures/file'
-          src: [ '*.jade' ]
+          src: [ '*.pug' ]
           dest: '.tmp/'
         ]
 
@@ -65,7 +65,7 @@ module.exports = (grunt) ->
                 msg: 'and hello to you'
           pretty: true
         files:
-          '.tmp/no-i18n.html': 'test/fixtures/directory/*.jade'
+          '.tmp/no-i18n.html': 'test/fixtures/directory/*.pug'
 
     nodeunit:
       tests: ['test/*_test.coffee']
@@ -79,4 +79,4 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-release'
 
   grunt.registerTask 'default', ['clean', 'coffeelint']
-  grunt.registerTask 'test', ['default', 'jade', 'nodeunit']
+  grunt.registerTask 'test', ['default', 'pug', 'nodeunit']

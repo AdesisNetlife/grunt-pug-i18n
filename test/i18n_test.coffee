@@ -1,6 +1,6 @@
 grunt = require 'grunt'
 
-exports.jade_i18n =
+exports.pug_i18n =
 
   translateFile: (test) ->
     test.expect 2
