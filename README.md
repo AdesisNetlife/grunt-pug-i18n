@@ -140,7 +140,7 @@ $ npm test
 
 ## Release History
 
-- **0.5.0** `2016.05.10`
+- **1.0.0** `2016.05.10`
     - Rename to `grunt-pug-i18n`
 - **0.3.4** `2015.02.18`
     - Fix error in multiple running tasks (#22, #23)
