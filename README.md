@@ -1,6 +1,6 @@
 # grunt-pug-i18n [![Build Status](https://travis-ci.org/AdesisNetlife/grunt-pug-i18n.svg)][travis] [![Downloads](https://img.shields.io/npm/dm/grunt-pug-i18n.svg)][npm]
 
-Compile Pug templates with internationalization support based on JS/JSON/YAML files using [Grunt](http://gruntjs.com)
+Compile Pug (previously Jade) templates with internationalization support based on JS/JSON/YAML files using [Grunt](http://gruntjs.com)
 
 ## Getting started
 
